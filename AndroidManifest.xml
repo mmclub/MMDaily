@@ -13,6 +13,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.SplashActivity"
+                  android:theme="@android:style/Theme.NoTitleBar"></activity>
 
     </application>
 </manifest>
