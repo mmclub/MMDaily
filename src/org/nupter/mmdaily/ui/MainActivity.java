@@ -1,7 +1,8 @@
-package org.nupter.mmdaily;
+package org.nupter.mmdaily.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import org.nupter.mmdaily.R;
 
 public class MainActivity extends Activity {
     /**
@@ -12,4 +13,5 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
+
 }

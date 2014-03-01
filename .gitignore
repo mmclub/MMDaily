@@ -30,3 +30,5 @@ proguard/
 *.iws
 .idea/
 out/
+
+MMKey.java
