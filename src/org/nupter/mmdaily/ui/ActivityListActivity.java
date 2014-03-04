@@ -41,8 +41,7 @@ public class ActivityListActivity extends Activity {
 
     private static final ActivityInfo[] demos = {
             new ActivityInfo(R.string.title_activity_main, R.string.subtitle_activity_main, MainActivity.class),
-
-
+            new ActivityInfo(R.string.title_activity_setting,R.string.subtitle_activity_setting,SettingActivity.class)
     };
 
 
