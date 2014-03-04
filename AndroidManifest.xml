@@ -15,6 +15,9 @@
         <activity android:name=".ui.SettingActivity"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.SplashActivity"
+                  android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".ui.ReadPageActivity"></activity>
 
     </application>
 </manifest>

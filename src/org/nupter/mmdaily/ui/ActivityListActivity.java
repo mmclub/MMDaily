@@ -40,8 +40,9 @@ public class ActivityListActivity extends Activity {
 
 
     private static final ActivityInfo[] demos = {
-            new ActivityInfo(R.string.title_activity_main, R.string.subtitle_activity_main, MainActivity.class),
-            new ActivityInfo(R.string.title_activity_setting,R.string.subtitle_activity_setting,SettingActivity.class)
+            new ActivityInfo(R.string.title_activity_main, R.string.subtitle_activity_main, SplashActivity.class),
+            new ActivityInfo(R.string.title_activity_setting,R.string.subtitle_activity_setting,SettingActivity.class),
+            new ActivityInfo(R.string.read_page_activity, R.string.read_page_activity, ReadPageActivity.class)
     };
 
 
@@ -55,8 +56,7 @@ public class ActivityListActivity extends Activity {
             convertView = View.inflate(ActivityListActivity.this, R.layout.item_actitvity_info, null);
             TextView title = (TextView) convertView.findViewById(R.id.title);
             TextView desc = (TextView) convertView.findViewById(R.id.desc);
-            if (demos[index].demoClass == MainActivity.class
-                    ) {
+            if (demos[index].demoClass==MainActivity.class) {
                 title.setTextColor(Color.BLUE);
                 desc.setTextColor(Color.BLUE);
             }
