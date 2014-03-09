@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
@@ -88,9 +89,9 @@ public class MainActivity extends Activity {
 
     private SimpleAdapter simpleAdapter;
 
-    public static final String MAIN_URL = "http://zhihudaily.sinaapp.com/";
+    private static final String MAIN_URL = "http://zhihudaily.sinaapp.com/";
 
-    public static ArrayList<String> ZURLS = new ArrayList();
+    private static ArrayList<String> ZURLS = new ArrayList();
 
     private static boolean ClickFlag = false;
 
@@ -108,7 +109,6 @@ public class MainActivity extends Activity {
     private ListView mListView;
     private DrawerLayout mDrawerLayout;
     String[] mListName = {"HotNews", "IWrite", "MyStory", "Others"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,7 +155,8 @@ public class MainActivity extends Activity {
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (false == ClickFlag) {
+
+                if (false == ClickFlag){
                     ClickFlag = true;
                     mHandler = new Handler() {
                         @Override
