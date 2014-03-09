@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
+import org.nupter.mmdaily.MainActivity;
 import org.nupter.mmdaily.R;
 
 /**
@@ -17,19 +19,19 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        ImageView imageView = (ImageView)findViewById(R.id.imageView);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
         new Handler().postDelayed(new Runnable() {
-        public void run() {
-                 Intent mSplashIntent = new Intent(SplashActivity.this,
-                                             MainActivity.class);
-                              SplashActivity.this.startActivity(mSplashIntent);
-                           SplashActivity.this.finish();
-                        }
+            public void run() {
+                Intent mSplashIntent = new Intent(SplashActivity.this,
+                        MainActivity.class);
+                SplashActivity.this.startActivity(mSplashIntent);
+                SplashActivity.this.finish();
+            }
 
-                        }, SPLASH_DISPLAY_LENGHT);
+        }, SPLASH_DISPLAY_LENGHT);
 
-           }
+    }
 
 
 }

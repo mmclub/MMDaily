@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import org.nupter.mmdaily.MainActivity;
 import org.nupter.mmdaily.R;
 
 /**
@@ -95,7 +96,6 @@ public class ActivityListActivity extends Activity {
             this.demoClass = demoClass;
         }
     }
-
 
 
 }

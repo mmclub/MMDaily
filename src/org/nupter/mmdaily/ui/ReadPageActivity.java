@@ -21,7 +21,7 @@ public class ReadPageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_page);
 
-        mBackButton = (Button)findViewById(R.id.ReadPageBack);
+        mBackButton = (Button) findViewById(R.id.ReadPageBack);
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
