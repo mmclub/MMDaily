@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.nupter.mmdaily"
+    android:id="@+id/headView_Main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/path_headimage"
+        android:layout_width="fill_parent"
+        android:layout_height="134dp"
+        android:scaleType="center"
+        android:src="@drawable/head_bg" />
+    
+     <ProgressBar
+          android:id="@+id/pb_item_head"
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:visibility="gone"
+          android:layout_marginTop="8.0dip"
+          android:layout_alignParentRight="true" />
+     
+     
+     <org.nupter.mmdaily.widget.HoloCircleSeekBar
+        android:id="@+id/picker"
+        android:layout_width="20dp"
+        android:layout_height="320dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8.0dip"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:max="100"
+        app:wheel_size="6"
+        app:pointer_size="4" 
+        app:pointer_color="#00000000"
+        app:pointer_halo_color="#00000000"
+        app:text_color="#FF0000"
+        app:text_size="0"
+        app:show_text="false"
+        app:wheel_active_color="#00BFFF"
+        app:wheel_unactive_color="#FFCCCCCC" />
+       
+</RelativeLayout>
