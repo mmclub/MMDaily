@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".MainActivity" >
+    
+
+ <org.nupter.mmdaily.widget.PinnedSectionListView
+	    android:id="@+id/main_list"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" 
+	    android:headerDividersEnabled="false"
+	    android:footerDividersEnabled="false"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1px"
+	    android:fadingEdge="none"
+	    />
+ 
+  <ImageView 
+      android:id="@+id/iv_top"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:layout_marginTop="5dp"
+      android:layout_marginRight="5dp"
+      android:src="@drawable/home_menu1"
+      android:scaleType="center"
+      android:layout_alignParentRight="true"
+      />
+    <Button
+            android:id="@+id/next_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="下一页"
+            />
+
+</RelativeLayout>
