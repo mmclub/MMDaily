@@ -1,11 +1,17 @@
 package org.nupter.mmdaily;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
@@ -82,9 +88,9 @@ public class MainActivity extends Activity {
 
     private SimpleAdapter simpleAdapter;
 
-    private static final String MAIN_URL = "http://zhihudaily.sinaapp.com/";
+    public static final String MAIN_URL = "http://zhihudaily.sinaapp.com/";
 
-    private static ArrayList<String> ZURLS = new ArrayList();
+    public static ArrayList<String> ZURLS = new ArrayList();
 
     private static boolean ClickFlag = false;
 
@@ -98,10 +104,16 @@ public class MainActivity extends Activity {
 
     public static int sectionPosition = 0, listPosition = 0;
 
+    //侧滑
+    private ListView mListView;
+    private DrawerLayout mDrawerLayout;
+    String[] mListName = {"HotNews", "IWrite", "MyStory", "Others"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.activity_main);
 /*
  *     利用LayoutInflater动态载入XML布局文件，并且实例化，并且使用inflate返回一个View
@@ -117,6 +129,12 @@ public class MainActivity extends Activity {
         MainLv = (PinnedSectionListView) findViewById(R.id.main_list);
 
         MainLv.setTopView((ImageView) findViewById(R.id.iv_top));
+
+        mListView = (ListView) findViewById(R.id.listView);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, mListName);
+        mListView.setAdapter(arrayAdapter);
 
         MainLv.setHeadView(head);
         MainLv.addHeaderView(head);
@@ -137,7 +155,7 @@ public class MainActivity extends Activity {
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (false == ClickFlag){
+                if (false == ClickFlag) {
                     ClickFlag = true;
                     mHandler = new Handler() {
                         @Override
@@ -198,6 +216,37 @@ public class MainActivity extends Activity {
 
             ;
         }.start();
+
+        mDrawerLayout.setDrawerListener(new ActionBarDrawerToggle(this,
+                mDrawerLayout, R.drawable.ic_launcher, R.string.app_name, R.string.title_activity_main) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                invalidateOptionsMenu();
+            }
+        });
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Fragment fragment = new Fragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("content", mListName[i]);
+                fragment.setArguments(bundle);
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frame_layout, fragment);
+                mListView.setItemChecked(i, true);
+                mDrawerLayout.closeDrawer(mListView);
+
+            }
+        });
 
     }
 

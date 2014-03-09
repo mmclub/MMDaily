@@ -7,4 +7,5 @@
     
     <!-- Went to: $android-sdk > Android:v14 > res > values > colors.xml and copied the colors-->
     
+    <color name="white">#ffffff</color>
 </resources>
