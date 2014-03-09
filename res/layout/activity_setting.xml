@@ -18,7 +18,6 @@
         <LinearLayout android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
                       android:background="@drawable/list_bg"
-                      android:layout_marginBottom="10dp"
                       android:orientation="vertical">
             <LinearLayout android:layout_width="fill_parent"
                           android:layout_height="fill_parent"
@@ -35,7 +34,7 @@
                 <ToggleButton
                         android:layout_width="75dp"
                         android:layout_height="25dp"
-                        android:id="@+id/refreshsoundTB"
+                        android:id="@+id/autoDownload"
                         android:background="@drawable/togglebutton"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="10dp"
@@ -47,12 +46,14 @@
                     android:layout_width="fill_parent"
                     android:background="@drawable/img_line"/>
             <TextView
+                    android:id="@+id/download"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:text="立即离线下载"
                     android:gravity="center_vertical"
                     android:layout_weight="1"
                     android:textColor="@color/black"
+                    android:background="@drawable/app_list_corner_round_bottom"
                     android:textSize="20sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -70,7 +71,6 @@
                       android:layout_height="fill_parent"
                       android:layout_weight="6"
                       android:orientation="vertical"
-                      android:layout_marginTop="10dp"
                       android:background="@drawable/list_bg">
             <LinearLayout android:layout_width="fill_parent"
                           android:layout_height="fill_parent"
@@ -87,7 +87,7 @@
                 <ToggleButton
                         android:layout_width="75dp"
                         android:layout_height="25dp"
-                        android:id="@+id/refreshsoundTB"
+                        android:id="@+id/nightMode"
                         android:background="@drawable/togglebutton"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="10dp"
@@ -113,7 +113,7 @@
                 <ToggleButton
                         android:layout_width="75dp"
                         android:layout_height="25dp"
-                        android:id="@+id/refreshsoundTB"
+                        android:id="@+id/noPicMode"
                         android:background="@drawable/togglebutton"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="10dp"
@@ -139,7 +139,7 @@
                 <ToggleButton
                         android:layout_width="75dp"
                         android:layout_height="25dp"
-                        android:id="@+id/refreshsoundTB"
+                        android:id="@+id/pushMessage"
                         android:background="@drawable/togglebutton"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="10dp"
@@ -151,38 +151,147 @@
                     android:layout_width="fill_parent"
                     android:background="@drawable/img_line"/>
             <TextView
+                    android:id="@+id/textSize"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:text="字体大小"
                     android:gravity="center_vertical"
                     android:textColor="@color/black"
-                    android:onClick="@drawable/app_list_corner_round_bottom"
+                    android:background="@drawable/app_list_corner_round_bottom"
                     android:textSize="20sp"/>
         </LinearLayout>
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="其他设置"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
         <LinearLayout android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
-                      android:layout_weight="4"
-                      android:layout_marginTop="10dp"
-                      android:orientation="vertical">
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="其他设置"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"/>
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_height="fill_parent"
-                    android:layout_width="fill_parent"
-                    android:gravity="center">
-                <org.nupter.mmdaily.utils.CornerListView
-                        android:id="@+id/other"
+                      android:layout_weight="5"
+                      android:orientation="vertical"
+                      android:background="@drawable/list_bg">
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal"
+                          android:background="@drawable/app_list_corner_round_top"
+                          android:id="@+id/share">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="fill_parent"
+                        android:textSize="20sp"
+                        android:text="分享"
+                        android:textColor="@color/black"
+                        android:gravity="center_vertical"/>
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:layout_width="fill_parent"
-                        android:background="@drawable/list_bg"
-                        android:divider="@drawable/img_line"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/appreciate_tab_list_item"/>
+            </LinearLayout>
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/img_line"/>
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal"
+                          android:id="@+id/clear"
+                    android:background="@drawable/app_list_corner_round_center">
+                <TextView android:layout_width="0dp"
+                          android:layout_weight="5"
+                          android:layout_height="fill_parent"
+                          android:textSize="20sp"
+                          android:text="清除缓存"
+                          android:textColor="@color/black"
+                          android:gravity="center_vertical"/>
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/appreciate_tab_list_item"/>
+            </LinearLayout>
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/img_line"/>
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal"
+                          android:id="@+id/suggestion"
+                          android:background="@drawable/app_list_corner_round_center">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="fill_parent"
+                        android:textSize="20sp"
+                        android:text="意见反馈"
+                        android:textColor="@color/black"
+                        android:gravity="center_vertical"/>
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/appreciate_tab_list_item"/>
+            </LinearLayout>
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/img_line"/>
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal"
+                          android:id="@+id/update"
+                          android:background="@drawable/app_list_corner_round_center">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="fill_parent"
+                        android:textSize="20sp"
+                        android:text="检测更新"
+                        android:textColor="@color/black"
+                        android:gravity="center_vertical"/>
+                <ImageView
+
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/appreciate_tab_list_item"/>
+            </LinearLayout>
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/img_line"/>
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1"
+                          android:orientation="horizontal"
+                          android:id="@+id/about"
+                          android:background="@drawable/app_list_corner_round_bottom">
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="fill_parent"
+                        android:textSize="20sp"
+                        android:text="关于"
+                        android:textColor="@color/black"
+                        android:gravity="center_vertical"/>
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/appreciate_tab_list_item"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
