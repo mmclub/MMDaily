@@ -24,8 +24,6 @@ Git提交请以一个小功能点的完成作为一个commit。
 
 ## 开发内容
 
-<<<<<<< HEAD
-=======
 
 ## 注意
 
@@ -33,7 +31,6 @@ Git提交请以一个小功能点的完成作为一个commit。
 
 开发的时候请把测试用的Key常量文件`src/org/nupter/mmdaily/MMKeyExample.java` 拷贝到 `src/org/nupter/mmdaily/MMKey.java`来进行调试
 
->>>>>>> 23ee19d4b25889a5a112f4f6d39e4d306fc8d82b
 ## API文档
 
 请看`doc/api.md`的内容
