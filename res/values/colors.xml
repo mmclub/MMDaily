@@ -8,4 +8,6 @@
     <!-- Went to: $android-sdk > Android:v14 > res > values > colors.xml and copied the colors-->
     
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="light_blue">#3399cc</color>
 </resources>
