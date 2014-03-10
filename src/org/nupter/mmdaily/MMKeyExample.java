@@ -6,4 +6,5 @@ package org.nupter.mmdaily;
  * Time:   3:44 PM
  */
 public class MMKeyExample {
+
 }

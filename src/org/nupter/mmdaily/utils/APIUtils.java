@@ -18,7 +18,7 @@ public class APIUtils {
         client.post(url, params, handler);
     }
 
-    public static void get(String url, RequestParams params, AsyncHttpResponseHandler handler){
+    public static void get(String url, RequestParams params, AsyncHttpResponseHandler handler) {
         client.get(url, params, handler);
     }
 }
